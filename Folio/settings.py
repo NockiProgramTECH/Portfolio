@@ -39,10 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-
-    # Third-party apps
-    'django_cotton',           # Required: Django Cotton
-    'tungsten_ui',
 ]
 
 MIDDLEWARE = [
