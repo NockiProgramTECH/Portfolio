@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ projet.name }} — Détails du projet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+    .project-header {
+      padding-top: 140px;
+      padding-bottom: 60px;
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--border);
+    }
+    .project-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 24px;
+    }
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-top: 40px;
+    }
+    .meta-item h4 {
+      font-family: var(--font-head);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .meta-item p, .meta-item .tags {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    .project-content {
+      padding: 80px 0;
+    }
+    .project-grid-detail {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 60px;
+    }
+    .project-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+    .project-gallery {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+      gap: 24px;
+    }
+    .gallery-item {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      transition: transform var(--transition);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.02);
+    }
+    .project-sidebar {
+      position: sticky;
+      top: 120px;
+    }
+    .sidebar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .sidebar-card h3 {
+      font-family: var(--font-head);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    .project-links-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    @media (max-width: 768px) {
+      .project-grid-detail {
+        grid-template-columns: 1fr;
+      }
+      .project-sidebar {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar" class="scrolled">
+  <div class="container nav-inner">
+    <a href="{% url 'index' %}" class="nav-logo">LWE<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="{% url 'index' %}#projects">Retour aux projets</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="project-header">
+  <div class="container">
+    <p class="section-label">Détails du Projet</p>
+    <h1 class="project-title">{{ projet.name }}</h1>
+    
+    <div class="project-meta">
+      <div class="meta-item">
+        <h4>Date</h4>
+        <p>{{ projet.date_created|date:"F Y" }}</p>
+      </div>
+      <div class="meta-item">
+        <h4>Technologies</h4>
+        <div class="project-stack">
+          {% for tech in projet.technologies.all %}
+            <span class="tag">{{ tech.name }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="project-content">
+  <div class="container">
+    <div class="project-grid-detail">
+      <div class="project-main">
+        <div class="project-description">
+          {{ projet.long_description|linebreaks }}
+        </div>
+
+        <div class="project-gallery">
+          {% for img in projet.images.all %}
+            <div class="gallery-item">
+              <img src="{{ img.image.url }}" alt="{{ img.caption }}">
+              {% if img.caption %}
+                <p style="padding: 12px; font-size: 0.85rem; color: var(--text-muted);">{{ img.caption }}</p>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <aside class="project-sidebar">
+        <div class="sidebar-card">
+          <h3>Main Visualization</h3>
+          <div class="gallery-item">
+            <img src="{{ projet.image.url }}" alt="Main image of {{ projet.name }}">
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Liens du projet</h3>
+          <div class="project-links-vertical">
+            {% if projet.github_link %}
+              <a href="{{ projet.github_link }}" class="btn btn-outline" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+                GitHub Code
+              </a>
+            {% endif %}
+            {% if projet.demo_link %}
+              <a href="{{ projet.demo_link }}" class="btn btn-primary" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Voir la démo
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-logo">LWE<span>.</span></div>
+    <p class="footer-copy">© 2026 Lankoande Wendenda Enock</p>
+  </div>
+</footer>
+
+</body>
+</html>

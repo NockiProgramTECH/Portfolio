@@ -1,30 +1,37 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 
 # Create your views here.
 
-from .models import Contact, Projet, Certifications, Experience, Formation,Cv
+from .models import Contact, Projet, Certifications, Experience, Formation, Cv
 
 
 def index(request):
 
-    projets =Projet.objects.all().order_by('id')  # Affiche les projets dans l'ordre d'ajout (du plus ancien au plus récent)
+    projets = Projet.objects.all().order_by('-date_created')  # Affiche les projets les plus récents en premier
     certifications = Certifications.objects.all()
-    experiences = Experience.objects.all()  # Affiche les expériences les plus récentes en premier
-    formation=Formation.objects.all()
-    cv =Cv.objects.last()  # Récupère le dernier CV ajouté (si plusieurs CV sont présents, on prend le plus récent)
+    experiences = Experience.objects.all().order_by('-date_debut')  # Affiche les expériences les plus récentes en premier
+    formation = Formation.objects.all().order_by('-date_debut')
+    cv = Cv.objects.last()  # Récupère le dernier CV ajouté
 
-    context ={
+    context = {
         'projets': projets,
         'certifications': certifications,
         'experiences': experiences,
         'formation': formation,
         'cv': cv,
-
     }
 
-    return render(request,"app/index.html", context)
+    return render(request, "app/index.html", context)
+
+
+def project_detail(request, pk):
+    projet = get_object_or_404(Projet, pk=pk)
+    context = {
+        'projet': projet,
+    }
+    return render(request, "app/project_detail.html", context)
 
 
 

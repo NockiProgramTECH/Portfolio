@@ -385,44 +385,38 @@
 
       
       {% for projet in projets %}
-        
-
-        
-
-      <!-- Projet 1 -->
+      <!-- Projet {{ forloop.counter }} -->
       <article class="project-card reveal">
         <div class="project-img">
-          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=360&fit=crop" alt="Capture du projet plateforme de gestion" loading="lazy" />
+          <img src="{{ projet.image.url }}" alt="Capture du projet {{ projet.name }}" loading="lazy" />
           <div class="project-img-overlay"></div>
         </div>
         <div class="project-body">
-        <div class="project-num">{{projet.id}}</div>
-        <h3 class="project-name">{{projet.name}}—</h3>
+        <div class="project-num">0{{ forloop.counter }}</div>
+        <h3 class="project-name">{{ projet.name }}—</h3>
         <p class="project-desc">
-          {{projet.description}}
+          {{ projet.description }}
          </p>
         <div class="project-stack">
           {% for tech in projet.technologies.all %}
-            <span class="tag">{{tech}}</span>
+            <span class="tag">{{ tech.name }}</span>
           {% endfor %}
-          
         </div>
         <div class="project-links">
-          <!-- TODO: Remplacez # par l'URL de votre projet -->
-          <a href="#" class="project-link" aria-label="Voir la démo du projet 1">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Voir la démo
+          <a href="{% url 'project_detail' projet.pk %}" class="project-link" aria-label="Voir les détails du projet {{ projet.name }}">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            Détails
           </a>
-          <!-- TODO: Remplacez # par le lien GitHub -->
-          <a href="{{projet.github_link}}" class="project-link" aria-label="Voir le code source GitHub du projet 1">
+          {% if projet.github_link %}
+          <a href="{{ projet.github_link }}" class="project-link" target="_blank" aria-label="Voir le code source GitHub du projet {{ projet.name }}">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
             GitHub
           </a>
+          {% endif %}
         </div>
         </div>
       </article>
-
-            {% endfor %}
+      {% endfor %}
 {% comment %} 
       <!-- Projet 2 -->
       <article class="project-card reveal reveal-delay-1">
@@ -654,34 +648,20 @@
       <div class="reveal">
         <p class="xp-col-title">💼 Expérience professionnelle</p>
         <div class="timeline" role="list">
-
+          {% for exp in experiences %}
           <div class="timeline-item" role="listitem">
-            <p class="timeline-period">20XX — Présent</p>
-            <!-- TODO: Remplacez par votre poste actuel -->
-            <h3 class="timeline-title">[ Votre poste actuel ]</h3>
-            <p class="timeline-org">[ Entreprise / Freelance ]</p>
+            <p class="timeline-period">{{ exp.date_debut|date:"Y" }} — {% if exp.date_fin %}{{ exp.date_fin|date:"Y" }}{% else %}Présent{% endif %}</p>
+            <h3 class="timeline-title">{{ exp.titre_poste }}</h3>
+            <p class="timeline-org">{{ exp.entreprise }}</p>
             <p class="timeline-desc">
-              <!-- TODO: Décrivez vos missions et réalisations -->
-              Développement et maintenance d'applications web et mobiles. Mise en place de pipelines
-              CI/CD, containerisation Docker, collaboration Git.
+              {{ exp.description|linebreaksbr }}
             </p>
           </div>
-
-          <div class="timeline-item" role="listitem">
-            <p class="timeline-period">20XX — 20XX</p>
-            <!-- TODO: Remplacez par votre expérience précédente -->
-            <h3 class="timeline-title">[ Poste précédent ]</h3>
-            <p class="timeline-org">[ Entreprise ]</p>
-            <p class="timeline-desc">
-              <!-- TODO: Décrivez vos missions -->
-              Description de vos missions et de l'impact de votre travail.
-            </p>
-          </div>
-
+          {% empty %}
           <div class="timeline-placeholder" aria-label="Espace réservé">
             ＋ Ajoutez ici d'autres expériences (stages, freelance, projets associatifs…)
           </div>
-
+          {% endfor %}
         </div>
       </div>
 
@@ -689,32 +669,20 @@
       <div class="reveal reveal-delay-2">
         <p class="xp-col-title">🎓 Formation</p>
         <div class="timeline" role="list">
-
+          {% for edu in formation %}
           <div class="timeline-item" role="listitem">
-            <p class="timeline-period">20XX — 20XX</p>
-            <!-- TODO: Remplacez par votre diplôme -->
-            <h3 class="timeline-title">[ Titre du diplôme ]</h3>
-            <p class="timeline-org">[ Université / École ]</p>
+            <p class="timeline-period">{{ edu.date_debut|date:"Y" }} — {% if edu.date_fin %}{{ edu.date_fin|date:"Y" }}{% else %}Présent{% endif %}</p>
+            <h3 class="timeline-title">{{ edu.titre_formation }}</h3>
+            <p class="timeline-org">{{ edu.institution }}</p>
             <p class="timeline-desc">
-              <!-- TODO: Domaine et spécialisation -->
-              Spécialisation en informatique / développement logiciel.
+              {{ edu.description|linebreaksbr }}
             </p>
           </div>
-
-          <div class="timeline-item" role="listitem">
-            <p class="timeline-period">20XX — 20XX</p>
-            <h3 class="timeline-title">Cisco Networking Academy</h3>
-            <p class="timeline-org">Formation en ligne — NetAcad</p>
-            <p class="timeline-desc">
-              Python Essentials II, Network Fundamentals — apprentissage des bases
-              des réseaux et de la programmation Python avancée.
-            </p>
-          </div>
-
+          {% empty %}
           <div class="timeline-placeholder" aria-label="Espace réservé">
             ＋ Ajoutez d'autres formations, MOOCs, bootcamps…
           </div>
-
+          {% endfor %}
         </div>
       </div>
 
