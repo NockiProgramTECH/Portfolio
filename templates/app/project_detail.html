@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ projet.name }} — Détails du projet</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+   <link rel="shortcut icon" href="{{static 'image/enock.ico'}}" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -132,6 +133,10 @@
           {% endfor %}
         </div>
       </div>
+      <!-- <div class="meta-item">
+        <h4>Consultations</h4>
+        <p>{{ projet.views_count }} vues</p>
+      </div> -->
     </div>
   </div>
 </header>

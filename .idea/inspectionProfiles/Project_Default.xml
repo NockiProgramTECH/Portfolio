@@ -1,0 +1,57 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="IncorrectHttpHeaderInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="customHeaders">
+        <set>
+          <option value="&quot;numeroISDN&quot;" />
+          <option value="&quot;nom&quot;" />
+        </set>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="asgiref" />
+          <option value="attrs" />
+          <option value="colorama" />
+          <option value="Django" />
+          <option value="django-cors-headers" />
+          <option value="django-filter" />
+          <option value="djangorestframework" />
+          <option value="djangorestframework-gis" />
+          <option value="djangorestframework_simplejwt" />
+          <option value="drf-spectacular" />
+          <option value="inflection" />
+          <option value="jsonschema" />
+          <option value="jsonschema-specifications" />
+          <option value="pillow" />
+          <option value="psycopg2" />
+          <option value="PyJWT" />
+          <option value="PyYAML" />
+          <option value="qrcode" />
+          <option value="referencing" />
+          <option value="rpds-py" />
+          <option value="sqlparse" />
+          <option value="tzdata" />
+          <option value="uritemplate" />
+          <option value="whitenoise" />
+          <option value="python-dotenv" />
+          <option value="gunicorn" />
+          <option value="channels" />
+          <option value="daphne" />
+          <option value="channels-redis" />
+          <option value="redis" />
+          <option value="requests" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyStubPackagesAdvertiser" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="djangorestframework" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

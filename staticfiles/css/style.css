@@ -366,6 +366,10 @@
       top: 30px; right: -20px;
       animation-delay: -3s;
     }
+    .hero-float-card-3 {
+      bottom: 60px; right: -20px;
+      animation-delay: -1.5s;
+    }
     .hero-float-icon { font-size: 1.2rem; }
     .hero-float-val {
       font-family: var(--font-head);

@@ -1,0 +1,815 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$eKyQ2cPMnZwVUqZjsJ8rA9$dWgrA6pXumUPMUz1dznb5PMLkCI6h9DeTtgCkNNqrnw=",
+    "last_login": "2026-06-30T11:22:28.109Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-30T19:49:29.983Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "app.technology",
+  "pk": 1,
+  "fields": {
+    "name": "Javascript"
+  }
+},
+{
+  "model": "app.technology",
+  "pk": 2,
+  "fields": {
+    "name": "Flutter"
+  }
+},
+{
+  "model": "app.technology",
+  "pk": 3,
+  "fields": {
+    "name": "Dart"
+  }
+},
+{
+  "model": "app.technology",
+  "pk": 4,
+  "fields": {
+    "name": "python"
+  }
+},
+{
+  "model": "app.technology",
+  "pk": 5,
+  "fields": {
+    "name": "linux"
+  }
+},
+{
+  "model": "app.technology",
+  "pk": 6,
+  "fields": {
+    "name": "docker"
+  }
+},
+{
+  "model": "app.projet",
+  "pk": 1,
+  "fields": {
+    "name": "DiploChaineRecruteur",
+    "description": "Plateforme de sécurisation et de vérification de diplômes universitaires via QR codes et empreintes numériques.",
+    "long_description": "e projet répond au problème de la falsification de documents académiques. Il permet aux institutions d'importer leurs propres modèles de diplômes (PDF) et de générer des certificats uniques. Chaque document est associé à un hachage cryptographique unique et un QR Code. Un recruteur peut scanner ce code pour vérifier instantanément l'authenticité du diplôme sur la plateforme, garantissant ainsi l'intégrité des données sans intervention manuelle de l'université.",
+    "image": "projets/Capture_décran_2026-02-24_113606.png",
+    "github_link": "https://www.thesvg.org/",
+    "demo_link": null,
+    "date_created": "2026-05-16",
+    "views_count": 0,
+    "technologies": [
+      2
+    ]
+  }
+},
+{
+  "model": "app.projet",
+  "pk": 2,
+  "fields": {
+    "name": "SOS Alerte / AlertSapeur",
+    "description": "Application mobile d'alerte citoyenne permettant de signaler des incidents en temps réel aux services de secours avec géolocalisation précise.",
+    "long_description": "Développée pour réduire les délais d'intervention des secours, cette application permet à un témoin d'envoyer une alerte enrichie en quelques secondes. Le système capture automatiquement les coordonnées GPS et permet l'envoi de flux médias (photos et vidéos) pour aider les opérateurs à évaluer la gravité de la situation avant l'arrivée sur les lieux. Le backend assure une distribution intelligente des alertes vers les centres de secours les plus proches.",
+    "image": "projets/2026-06-11_2.png",
+    "github_link": "https://www.github.com",
+    "demo_link": null,
+    "date_created": "2026-04-10",
+    "views_count": 0,
+    "technologies": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "app.projet",
+  "pk": 3,
+  "fields": {
+    "name": ". BF Commerce",
+    "description": "Solution e-commerce géolocalisée connectant les consommateurs aux boutiques physiques dans un rayon défini.",
+    "long_description": "Conçue pour dynamiser le commerce local au Burkina Faso, cette plateforme permet aux marchands de digitaliser leur inventaire et leur emplacement physique. L'originalité réside dans son moteur de recherche de proximité : un utilisateur peut chercher un produit spécifique et voir instantanément toutes les boutiques le possédant dans un rayon de 5 km. Le projet intègre une gestion complexe de la cartographie et des stocks en temps réel.",
+    "image": "projets/ChatGPT_Image_27_avr._2026_09_35_13.png",
+    "github_link": "https://www.thesvg.org/",
+    "demo_link": null,
+    "date_created": "2026-05-17",
+    "views_count": 0,
+    "technologies": [
+      2,
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "app.projet",
+  "pk": 4,
+  "fields": {
+    "name": "Fluo Hotel",
+    "description": "Site de reservation d'hotel",
+    "long_description": "",
+    "image": "projets/Capture_décran_2026-06-30_081425.png",
+    "github_link": null,
+    "demo_link": null,
+    "date_created": "2026-06-30",
+    "views_count": 2,
+    "technologies": [
+      1
+    ]
+  }
+},
+{
+  "model": "app.projet",
+  "pk": 5,
+  "fields": {
+    "name": "CIMPP.net",
+    "description": "Plateforme du Centre Internationnale Mission Prophete de la Parole",
+    "long_description": "",
+    "image": "projets/Capture_décran_2026-06-15_165151.png",
+    "github_link": null,
+    "demo_link": null,
+    "date_created": "2026-05-14",
+    "views_count": 0,
+    "technologies": [
+      1,
+      4
+    ]
+  }
+},
+{
+  "model": "app.projetimage",
+  "pk": 1,
+  "fields": {
+    "projet": 2,
+    "image": "projets/illustrations/ChatGPT_Image_22_avr._2026_16_02_41.png",
+    "caption": "maquette"
+  }
+},
+{
+  "model": "app.projetimage",
+  "pk": 2,
+  "fields": {
+    "projet": 2,
+    "image": "projets/illustrations/ChatGPT_Image_22_avr._2026_16_06_10.png",
+    "caption": "inscription"
+  }
+},
+{
+  "model": "app.projetimage",
+  "pk": 3,
+  "fields": {
+    "projet": 1,
+    "image": "projets/illustrations/ChatGPT_Image_29_avr._2026_20_43_51.png",
+    "caption": "app"
+  }
+},
+{
+  "model": "app.projetimage",
+  "pk": 4,
+  "fields": {
+    "projet": 3,
+    "image": "projets/illustrations/ChatGPT_Image_27_avr._2026_09_35_13.png",
+    "caption": ""
+  }
+},
+{
+  "model": "app.projetimage",
+  "pk": 5,
+  "fields": {
+    "projet": 2,
+    "image": "projets/illustrations/2026-06-11_2.png",
+    "caption": "dashboard des interveneant"
+  }
+},
+{
+  "model": "app.projetimage",
+  "pk": 6,
+  "fields": {
+    "projet": 2,
+    "image": "projets/illustrations/2026-06-11_7.png",
+    "caption": ""
+  }
+},
+{
+  "model": "app.projetimage",
+  "pk": 7,
+  "fields": {
+    "projet": 4,
+    "image": "projets/illustrations/Capture_décran_2026-06-29_152601.png",
+    "caption": ""
+  }
+},
+{
+  "model": "app.projetimage",
+  "pk": 8,
+  "fields": {
+    "projet": 4,
+    "image": "projets/illustrations/Capture_décran_2026-06-30_081425.png",
+    "caption": ""
+  }
+},
+{
+  "model": "app.projetimage",
+  "pk": 9,
+  "fields": {
+    "projet": 5,
+    "image": "projets/illustrations/Capture_décran_2026-06-15_165151.png",
+    "caption": ""
+  }
+},
+{
+  "model": "app.projetimage",
+  "pk": 10,
+  "fields": {
+    "projet": 5,
+    "image": "projets/illustrations/Capture_décran_2026-06-30_113115.png",
+    "caption": ""
+  }
+},
+{
+  "model": "app.projetimage",
+  "pk": 11,
+  "fields": {
+    "projet": 5,
+    "image": "projets/illustrations/Capture_décran_2026-06-30_113136.png",
+    "caption": ""
+  }
+},
+{
+  "model": "app.certifications",
+  "pk": 1,
+  "fields": {
+    "name": "Python Essentials II",
+    "source": "Cisco Networking Academy (NetAcad)",
+    "date_obtained": "2025-12-26",
+    "description": "Maîtrise avancée du langage Python : programmation orientée objet, gestion des exceptions, modules, fichiers et bonnes pratiques de développement.",
+    "certificate_file": "certifications/Python_Essentials_2_certificate_lankoandeenock002-gmail-com_ddc50254-ea61_6eoGSs0.pdf"
+  }
+},
+{
+  "model": "app.certifications",
+  "pk": 2,
+  "fields": {
+    "name": "Network Fundamentals",
+    "source": "Cisco Networking Academy (NetAcad)",
+    "date_obtained": "2026-01-22",
+    "description": "Fondamentaux des réseaux informatiques : modèles OSI/TCP-IP, protocoles, adressage IP, routage et sécurité réseau de base.",
+    "certificate_file": "certifications/Networking_Basics_certificate_lankoandeenock002-gmail-com_7b58b4f1-455f-4_LsGVIZl.pdf"
+  }
+},
+{
+  "model": "app.formation",
+  "pk": 1,
+  "fields": {
+    "titre_formation": "Ligthning Develloper",
+    "institution": "Africa Free ROUTING",
+    "description": "Formation sur le developpement bitcoin et Lightning Network",
+    "date_debut": "2026-04-13",
+    "date_fin": "2026-04-17"
+  }
+},
+{
+  "model": "app.formation",
+  "pk": 2,
+  "fields": {
+    "titre_formation": "Python Essentiels 2",
+    "institution": "CISCO NET Academy",
+    "description": "",
+    "date_debut": "2025-09-18",
+    "date_fin": "2025-12-25"
+  }
+},
+{
+  "model": "app.contact",
+  "pk": 2,
+  "fields": {
+    "nom": "Mr DUPONT",
+    "email": "jeandupont@gmail.com",
+    "message": "Je veux un projet de marketting pour ma boutique"
+  }
+},
+{
+  "model": "app.cv",
+  "pk": 2,
+  "fields": {
+    "cv_file": "CV/Lankoande_Wendenda_Enock_CV.pdf"
+  }
+},
+{
+  "model": "app.pagevisit",
+  "pk": 1,
+  "fields": {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "visited_at": "2026-07-07T10:15:38.946Z"
+  }
+},
+{
+  "model": "app.pagevisit",
+  "pk": 2,
+  "fields": {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "visited_at": "2026-07-07T10:17:41.381Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-03-30T19:51:01.088Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "technology"
+    ],
+    "object_id": "1",
+    "object_repr": "Javascript",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-03-30T19:52:57.055Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "projet"
+    ],
+    "object_id": "1",
+    "object_repr": "Plateforme de gestion —",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-03-30T19:53:52.623Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "technology"
+    ],
+    "object_id": "2",
+    "object_repr": "Flutter",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-03-30T19:53:59.632Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "technology"
+    ],
+    "object_id": "3",
+    "object_repr": "Dart",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-03-30T19:54:12.798Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "projet"
+    ],
+    "object_id": "2",
+    "object_repr": "Application mobile —",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-03-30T19:54:49.142Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "technology"
+    ],
+    "object_id": "4",
+    "object_repr": "python",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-03-30T19:54:59.900Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "technology"
+    ],
+    "object_id": "5",
+    "object_repr": "linux",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-03-30T19:55:25.927Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "projet"
+    ],
+    "object_id": "3",
+    "object_repr": "Script d'automatisation Python",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-03-30T20:08:09.619Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "certifications"
+    ],
+    "object_id": "1",
+    "object_repr": "Python Essentials II - Cisco Networking Academy (NetAcad)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-03-30T20:09:41.688Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "certifications"
+    ],
+    "object_id": "2",
+    "object_repr": "Network Fundamentals - Cisco Networking Academy (NetAcad)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-03-30T20:37:00.053Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "cv"
+    ],
+    "object_id": "1",
+    "object_repr": "CV/jk.pdf",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-05-17T16:55:22.091Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "projet"
+    ],
+    "object_id": "2",
+    "object_repr": "SOS Alerte / AlertSapeur",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\", \"Description\", \"Long description\", \"Technologies\", \"Date created\"]}}, {\"added\": {\"name\": \"projet image\", \"object\": \"Image for SOS Alerte / AlertSapeur\"}}, {\"added\": {\"name\": \"projet image\", \"object\": \"Image for SOS Alerte / AlertSapeur\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-05-17T16:58:15.695Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "projet"
+    ],
+    "object_id": "1",
+    "object_repr": "DiploChaineRecruteur",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\", \"Description\", \"Long description\", \"Technologies\", \"Date created\"]}}, {\"added\": {\"name\": \"projet image\", \"object\": \"Image for DiploChaineRecruteur\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-05-17T17:01:13.700Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "formation"
+    ],
+    "object_id": "1",
+    "object_repr": "Ligthning Develloper",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-05-17T17:02:41.466Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "formation"
+    ],
+    "object_id": "2",
+    "object_repr": "Python Essentiels 2",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-05-17T17:03:03.849Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "technology"
+    ],
+    "object_id": "6",
+    "object_repr": "docker",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-05-17T17:08:51.103Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "projet"
+    ],
+    "object_id": "3",
+    "object_repr": ". BF Commerce",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\", \"Description\", \"Long description\", \"Image\", \"Technologies\"]}}, {\"added\": {\"name\": \"projet image\", \"object\": \"Image for . BF Commerce\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-06-04T11:47:51.272Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "cv"
+    ],
+    "object_id": "1",
+    "object_repr": "CV/jk.pdf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-06-04T11:48:14.824Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "cv"
+    ],
+    "object_id": "2",
+    "object_repr": "CV/CV_2026-06-03-084958.pdf",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-06-04T11:50:42.619Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "projet"
+    ],
+    "object_id": "1",
+    "object_repr": "DiploChaineRecruteur",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Technologies\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-06-11T10:47:01.369Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "projet"
+    ],
+    "object_id": "2",
+    "object_repr": "SOS Alerte / AlertSapeur",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Technologies\"]}}, {\"added\": {\"name\": \"projet image\", \"object\": \"Image for SOS Alerte / AlertSapeur\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-06-11T10:48:11.635Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "projet"
+    ],
+    "object_id": "2",
+    "object_repr": "SOS Alerte / AlertSapeur",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\", \"Github link\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-06-11T10:50:01.719Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "contact"
+    ],
+    "object_id": "1",
+    "object_repr": "Lankoande Enock",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-06-11T11:22:53.056Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "projet"
+    ],
+    "object_id": "2",
+    "object_repr": "SOS Alerte / AlertSapeur",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"projet image\", \"object\": \"Image for SOS Alerte / AlertSapeur\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-06-12T10:24:24.395Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "cv"
+    ],
+    "object_id": "2",
+    "object_repr": "CV/Lankoande_Wendenda_Enock_CV.pdf",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cv file\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-06-30T11:25:08.722Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "projet"
+    ],
+    "object_id": "4",
+    "object_repr": "Fluo Hotel",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"projet image\", \"object\": \"Image for Fluo Hotel\"}}, {\"added\": {\"name\": \"projet image\", \"object\": \"Image for Fluo Hotel\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2026-06-30T11:33:14.596Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "app",
+      "projet"
+    ],
+    "object_id": "5",
+    "object_repr": "CIMPP.net",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"projet image\", \"object\": \"Image for CIMPP.net\"}}, {\"added\": {\"name\": \"projet image\", \"object\": \"Image for CIMPP.net\"}}, {\"added\": {\"name\": \"projet image\", \"object\": \"Image for CIMPP.net\"}}]"
+  }
+}
+]

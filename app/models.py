@@ -27,6 +27,7 @@ class Projet(models.Model):
     demo_link = models.URLField(blank=True, null=True)
     technologies = models.ManyToManyField(Technology, blank=True)  # Technologies utilisées
     date_created = models.DateField(default=timezone.now)
+    views_count = models.PositiveIntegerField(default=0, help_text="Nombre de consultations du projet")
 
     # Metadata
     class Meta:
@@ -106,5 +107,17 @@ class Cv(models.Model):
 
     def __str__(self):
         return self.cv_file.name
+
+
+class PageVisit(models.Model):
+    ip_address = models.GenericIPAddressField(blank=True, null=True)
+    user_agent = models.TextField(blank=True)
+    visited_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-visited_at']
+
+    def __str__(self):
+        return f"Visit from {self.ip_address} at {self.visited_at}"
 
 

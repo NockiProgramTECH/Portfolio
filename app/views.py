@@ -4,16 +4,30 @@ from django.views.decorators.http import require_http_methods
 
 # Create your views here.
 
-from .models import Contact, Projet, Certifications, Experience, Formation, Cv
+from .models import Contact, Projet, Certifications, Experience, Formation, Cv, PageVisit
+
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        return x_forwarded_for.split(',')[0].strip()
+    return request.META.get('REMOTE_ADDR')
 
 
 def index(request):
 
-    projets = Projet.objects.all().order_by('-date_created')  # Affiche les projets les plus récents en premier
+    # Enregistrer la visite
+    PageVisit.objects.create(
+        ip_address=get_client_ip(request),
+        user_agent=request.META.get('HTTP_USER_AGENT', '')[:500],
+    )
+
+    total_visits = PageVisit.objects.count()
+    projets = Projet.objects.all().order_by('-date_created')
     certifications = Certifications.objects.all()
-    experiences = Experience.objects.all().order_by('-date_debut')  # Affiche les expériences les plus récentes en premier
+    experiences = Experience.objects.all().order_by('-date_debut')
     formation = Formation.objects.all().order_by('-date_debut')
-    cv = Cv.objects.last()  # Récupère le dernier CV ajouté
+    cv = Cv.objects.last()
 
     context = {
         'projets': projets,
@@ -21,6 +35,7 @@ def index(request):
         'experiences': experiences,
         'formation': formation,
         'cv': cv,
+        'total_visits': total_visits,
     }
 
     return render(request, "app/index.html", context)
@@ -28,6 +43,8 @@ def index(request):
 
 def project_detail(request, pk):
     projet = get_object_or_404(Projet, pk=pk)
+    projet.views_count += 1
+    projet.save(update_fields=['views_count'])
     context = {
         'projet': projet,
     }
